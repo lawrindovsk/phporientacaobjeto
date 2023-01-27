@@ -1,54 +1,30 @@
-
 <?php
+//require_once("Endereco.php");
+require_once('Cliente.php');
+
+
 class Conta{
     //var
-    private string $cpfTitular;
-    private string $nomeTitular;  
     private float $saldoTitular;
+    private Cliente $cliente;
 
-
-    public function __construct(string $cpf, string $nome, float $saldo)
+    public function __construct(Cliente $cliente, float $saldo)
     {
-        $this->setCPF($cpf);
-        $this->setNome($nome);
+        $this->cliente = $cliente;
         $this->setSaldo($saldo);
     }//Fim do construtor.
 
     //Métodos de acesso e mod;
-    public function getCPF() : string
-    {
-        return $this->cpfTitular;
-    }//fim do getCPF;
-
-    public function getNome() : string
-    {
-        return $this->nomeTitular;
-    }//fim do getNome;
-
+   
     public function getSaldo() : float
     {
         return $this->saldoTitular;
     }//fim do getSaldo;
 
-    public function setCPF(string $cpf) : void
-    {
-        $this->cpfTitular = $cpf;
-    }//fim do setCPF;
-
-    public function setNome(string $nome) : void
-    {
-        $this->nomeTitular = $nome;
-    }//fim do setNome;
-
     public function setSaldo(float $saldo) : void
     {
         $this->saldoTitular = $saldo;
     }//fim do setSaldo;
-
-    public function imprimir() : void
-    {
-        echo "<br>CPF: ".$this->getCPF()."<br>Nome: ".$this->getNome()."<br>Saldo: R$".$this->getSaldo();
-    }//fim da função imprimir.
 
     //Métodos para depositar, sacar e transferir saldo.
 
